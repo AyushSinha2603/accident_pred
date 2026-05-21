@@ -35,12 +35,12 @@ The analysis utilizes a subset of traffic accident data, focusing specifically o
 ### 1. Feature Importance and Model Coefficients
 This visualization breaks down the internal logic of the balanced Logistic Regression model, highlighting how temperature and visibility influence accident severity.
 
-![Logistic Regression Coefficients](images/log_reg_coefs.png)
+![Logistic Regression Coefficients](visualisations/log_reg_coefs.png)
 
 ### 2. Actual vs. Predicted Severity
 This plot tracks the true accident severity against the model's predictions over a sample set, proving that the resampling techniques successfully mapped the minority classes.
 
-![Actual vs Predicted Severity](images/actual_vs_predicted.png)
+![Actual vs Predicted Severity](visualisations/actual_vs_predicted.png)
 
 ---
 
@@ -55,7 +55,8 @@ Relying on overall accuracy is a flawed approach for this dataset. While baselin
 ## 🚀 How to Run this Project
 
 1. **Clone the repository:**
-    git clone https://github.com/suchismitab0511/accident_pred
+    git clone https://github.com/suchismitab0511/Traffic-Accident-Severity-Prediction
+
 
 2. **Install dependencies:**
     pip install -r requirements.txt
