@@ -13,7 +13,7 @@ To build a model that actually learns the underlying patterns, two primary techn
 
 ### Visualizing the Impact
 
-![Actual vs Predicted Severity](images/actual_vs_predicted.png)
+![Actual vs Predicted Severity](visualisations/actual_vs_predicted.png)
 
 ## 🔑 Key Takeaways
 * **Accuracy is a flawed metric for imbalanced data.** F1-score, precision, and recall provide a much more honest assessment of model performance.
@@ -22,7 +22,7 @@ To build a model that actually learns the underlying patterns, two primary techn
 
 ### Coefficient Breakdown
 
-![Logistic Regression Coefficients](images/log_reg_coefs.png)
+![Logistic Regression Coefficients](visualisations/log_reg_coefs.png)
 
 ## 🚀 Future Work
 Currently, the model relies exclusively on `temperature_f` and `visibility_mi`. To drastically improve the F1-scores across minority classes, the dataset needs richer features. Future iterations should incorporate:
