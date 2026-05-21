@@ -1,6 +1,0 @@
-# Ignore the data folder
-data/
-sc_accidents.csv
-
-# Ignore Jupyter Notebook checkpoints
-.ipynb_checkpoints/
