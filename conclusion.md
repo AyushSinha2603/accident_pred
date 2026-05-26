@@ -1,31 +1,41 @@
-# 💡 Project Conclusions and Findings
+# 💡 Key Findings
 
-## 🚧 The Challenge: Class Imbalance
-The most significant hurdle in this dataset was severe class imbalance. Accident Severity Class 2 represented approximately **86.5%** of the data. 
+## 🚧 Main Challenge
+The dataset was heavily imbalanced:
 
-When initially training Logistic Regression, XGBoost, and an Artificial Neural Network (ANN), all three models fell into the "accuracy trap." They achieved roughly 87% accuracy simply by predicting Class 2 for every single data point, resulting in a precision and recall of 0.00 for severities 1, 3, and 4.
+- Severity Class 2 accounted for ~86.5% of all records.
+- Initial models achieved ~87% accuracy by predicting only Class 2.
+- Minority classes (1, 3, 4) had near-zero precision and recall.
 
-## 🛠️ The Solution
-To build a model that actually learns the underlying patterns, two primary techniques were implemented:
+This highlighted why accuracy alone is misleading for imbalanced datasets.
 
-1. **SMOTE (Synthetic Minority Over-sampling Technique):** Applied before training the XGBoost model to synthetically generate new examples for the minority classes, balancing the distribution.
-2. **Class Weights:** Applied to the Logistic Regression and Deep Learning (Keras/TensorFlow) models to heavily penalize the network for misclassifying rare, high-severity accidents.
+---
 
-### Visualizing the Impact
+## 🛠️ Techniques Used
+
+- Applied **SMOTE** to balance classes for XGBoost.
+- Used **Class Weights** for Logistic Regression and ANN models.
+- Evaluated models using **F1-score, Precision, and Recall** instead of accuracy.
 
 ![Actual vs Predicted Severity](visualisations/actual_vs_predicted.png)
 
-## 🔑 Key Takeaways
-* **Accuracy is a flawed metric for imbalanced data.** F1-score, precision, and recall provide a much more honest assessment of model performance.
-* **Feature Importance:** The Logistic Regression coefficients revealed that `temperature_f` had a positive correlation with accident severity, while `visibility_mi` had a negative correlation.
-* **Model Complexity:** While the ANN and XGBoost models are powerful, Logistic Regression provided the most immediate interpretability for how specific environmental factors influenced the predictions.
+---
 
-### Coefficient Breakdown
+## 🔑 Important Insights
+
+- `temperature_f` showed a positive correlation with accident severity.
+- `visibility_mi` showed a negative correlation with severity.
+- Logistic Regression provided the best interpretability among tested models.
 
 ![Logistic Regression Coefficients](visualisations/log_reg_coefs.png)
 
-## 🚀 Future Work
-Currently, the model relies exclusively on `temperature_f` and `visibility_mi`. To drastically improve the F1-scores across minority classes, the dataset needs richer features. Future iterations should incorporate:
-* Precipitation levels and weather conditions (Rain, Snow, Fog).
-* Time of day (Rush hour vs. late night).
-* Road types and speed limits.
+---
+
+## 🚀 Future Improvements
+
+Potential features to improve prediction quality:
+
+- Weather conditions (rain, fog, snow)
+- Time-based traffic patterns
+- Road type and speed limits
+- Additional traffic and environmental data
